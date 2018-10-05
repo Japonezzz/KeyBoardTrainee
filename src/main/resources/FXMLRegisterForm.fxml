@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="620.0" prefWidth="913.0" style="-fx-background-color: #80d6c0;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistrationFormController">
+   <children>
+      <Label layoutX="40.0" layoutY="37.0" prefHeight="75.0" prefWidth="277.0" text="REGISTRATION" textAlignment="CENTER">
+         <font>
+            <Font name="Maiandra GD" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="139.0" text="Nickname:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="218.0" text="Password:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="301.0" text="Email:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="378.0" text="Avatar:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="choose_button" layoutX="103.0" layoutY="422.0" onAction="#On_action_choose" prefHeight="25.0" prefWidth="141.0" text="Choose">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Register_button" layoutX="641.0" layoutY="535.0" onAction="#onRegister_click" prefHeight="66.0" prefWidth="246.0" text="Register">
+         <font>
+            <Font name="Maiandra GD" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Exit_button" buttonType="RAISED" layoutX="23.0" layoutY="540.0" onAction="#On_exit_click" prefHeight="57.0" prefWidth="221.0" text="Exit">
+         <font>
+            <Font name="Maiandra GD" size="24.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="image_view" fitHeight="110.0" fitWidth="165.0" layoutX="295.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="textfield_nickname" layoutX="54.0" layoutY="176.0" />
+      <TextField fx:id="textfield_password" layoutX="54.0" layoutY="258.0" />
+      <TextField fx:id="textfield_email" layoutX="54.0" layoutY="337.0" />
+   </children>
+</AnchorPane>

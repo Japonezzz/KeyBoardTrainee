@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainFormController">
+   <children>
+      <AnchorPane layoutX="-2.0" prefHeight="659.0" prefWidth="906.0">
+         <children>
+            <VBox layoutX="2.0" layoutY="3.0" prefHeight="659.0" prefWidth="906.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox prefHeight="52.0" prefWidth="906.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Player:" />
+                        <Label fx:id="label_nickname" alignment="BOTTOM_CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Label" />
+                        <Label alignment="BOTTOM_CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Level:" />
+                        <Label fx:id="label_level" alignment="BOTTOM_CENTER" maxHeight="25.0" maxWidth="50.0" minHeight="25.0" minWidth="50.0" prefHeight="25.0" prefWidth="50.0" text="Label" />
+                     </children>
+                  </HBox>
+                  <JFXTextArea fx:id="text_area" editable="false" maxWidth="906.0" minWidth="906.0" onKeyPressed="#On_key_pressed" prefHeight="222.0" prefWidth="906.0" />
+                  <HBox alignment="CENTER" prefHeight="139.0" prefWidth="906.0">
+                     <children>
+                        <JFXButton fx:id="btn_a" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="75.0" minHeight="100.0" minWidth="100.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="A">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_s" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="S">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_d" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="D">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_f" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="F">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_g" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="G">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_h" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="H">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_j" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="J">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_k" buttonType="RAISED" maxHeight="100.0" maxWidth="75.0" minHeight="100.0" minWidth="50.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="K">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                        <JFXButton fx:id="btn_l" buttonType="RAISED" cacheShape="false" centerShape="false" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" onAction="#Push_letter_button" prefHeight="100.0" prefWidth="75.0" style="-fx-background-color: #abd680;" text="L">
+                           <font>
+                              <Font size="36.0" />
+                           </font></JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="320.0" prefWidth="642.0" style="-fx-background-color: #80ced6;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LanguageFormController">
+   <children>
+      <Label layoutX="36.0" layoutY="293.0" text="Nickname:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="258.0" layoutY="293.0" text="Current Level:">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_nickname" layoutX="133.0" layoutY="294.0" prefHeight="17.0" prefWidth="37.0" text="label" />
+      <Label fx:id="level_labal" layoutX="378.0" layoutY="294.0" text="Label" />
+      <JFXComboBox fx:id="combo_languages" layoutX="34.0" layoutY="91.0" prefHeight="28.0" prefWidth="198.0" />
+      <Label layoutX="36.0" layoutY="39.0" prefHeight="52.0" prefWidth="245.0" text="Choose your language:">
+         <font>
+            <Font name="Maiandra GD" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="button_GO" buttonType="RAISED" layoutX="450.0" layoutY="268.0" onAction="#On_GO" prefHeight="35.0" prefWidth="178.0" style="-fx-background-color: #80d6c0;" text="GO!">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="close_button" buttonType="RAISED" layoutX="517.0" layoutY="224.0" onAction="#On_close" style="-fx-background-color: #80d6c0;" text="Close">
+         <font>
+            <Font name="Maiandra GD" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="29.0" layoutY="134.0" prefHeight="52.0" prefWidth="245.0" text="Choose your difficulty:">
+         <font>
+            <Font name="Maiandra GD" size="18.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="combo_diff" layoutX="34.0" layoutY="180.0" prefHeight="28.0" prefWidth="198.0" />
+   </children>
+</AnchorPane>
