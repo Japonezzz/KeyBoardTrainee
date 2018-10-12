@@ -3,33 +3,37 @@ package Controller;
 import Model.Profile;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Stage;
-
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainFormController implements Initializable {
 
-    ConnectionClass conn;
-    StringBuilder sb;
+    private ConnectionClass conn;
+    private StringBuilder sb;
     private int curr_level = 0;
-    String path;
-    long time_start = 0;
-    long time_finish = 0;
+    private String path;
+    private long time_start = 0;
+    private long time_finish = 0;
+    private List<Button>  buttns;
+    private List<Character> chars;
 
 
 
@@ -74,9 +78,29 @@ public class MainFormController implements Initializable {
 
     }
 
+    private void btn_color_change()
+    {
+        String toArea = text_area.getText();
+
+        for (Button b: buttns) {
+            b.setBackground(new Background(new BackgroundFill(Color.web("#abd680"), CornerRadii.EMPTY, Insets.EMPTY)));
+        }
+
+        try {
+            if (chars.contains(toArea.toUpperCase().charAt(1))) {
+                buttns.get(chars.indexOf(toArea.toUpperCase().charAt(1))).setBackground(new Background(new BackgroundFill(Color.web("#00ffff"), CornerRadii.EMPTY, Insets.EMPTY)));
+            }
+        }
+        catch (Exception ignored)
+        {}
+
+    }
+
 
     @FXML
-    void On_key_pressed(KeyEvent event) throws IOException {
+    void On_key_pressed(KeyEvent event) {
+
+        btn_color_change();
 
          String toArea = text_area.getText();
 
@@ -112,15 +136,18 @@ public class MainFormController implements Initializable {
                 text_area.setText(s);
             }
        }
-        catch (Exception ex)
+        catch (Exception ignored)
         {}
 
-        if(toArea.charAt(0)=='\n'&& event.getCode()==KeyCode.ENTER)
-        {
-            String s = toArea.substring(1, toArea.length());
-            text_area.setText(s);
-        }
+        try {
+            if (toArea.charAt(0) == '\n' && event.getCode() == KeyCode.ENTER) {
+                String s = toArea.substring(1, toArea.length());
+                text_area.setText(s);
+            }
 
+        }
+        catch (Exception ignored)
+        {}
     }
 
 
@@ -143,28 +170,54 @@ public class MainFormController implements Initializable {
         conn = new ConnectionClass();
         label_nickname.setText(ConnectionClass.user.getNickname());
         curr_level = 1;
+
+
+
+        buttns = new ArrayList<>();
+        chars = new ArrayList<>();
+
+        buttns.add(btn_a);
+        buttns.add(btn_d);
+        buttns.add(btn_f);
+        buttns.add(btn_g);
+        buttns.add(btn_h);
+        buttns.add(btn_j);
+        buttns.add(btn_k);
+        buttns.add(btn_l);
+        buttns.add(btn_s);
+
+        for (Button b: buttns
+             ) {
+            chars.add(b.getText().toUpperCase().charAt(0));
+        }
+
         try {
             init_level();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+//        path = "file://C:/Users/Japonezzz/IdeaProjects/KeyBoardTrainee/src/main/resources/sound.wav";
+//        Media media = new Media(new File(path).toURI().toString());
+//        MediaPlayer mediaPlayer = new MediaPlayer(media);
+//        mediaPlayer.setAutoPlay(true);
     }
 
 
-   public StringBuilder parse_file(String level_path) throws IOException {
+   private StringBuilder parse_file(String level_path) {
 
        sb = new StringBuilder();
-       BufferedReader br = new BufferedReader(new FileReader(level_path));
-       try {
+       try (BufferedReader br = new BufferedReader(new FileReader(level_path))) {
 
            String line = br.readLine();
-           String [] values = line.split(";");
+           String[] values = line.split(";");
            Integer quantity = Integer.valueOf(values[0]);
            Integer rows = Integer.valueOf(values[1]);
 
-               line = br.readLine();
+           line = br.readLine();
 
-           for( int i = 0; i<rows; i++) {
+           for (int i = 0; i < rows; i++) {
                for (int j = 0; j < quantity; j++) {
                    sb.append(line);
                    sb.append(" ");
@@ -174,18 +227,16 @@ public class MainFormController implements Initializable {
 
        } catch (IOException e) {
            e.printStackTrace();
-       } finally {
-           br.close();
        }
        return sb;
    }
 
-   public void fill_text_area (String text)
+   private void fill_text_area(String text)
    {
        text_area.setText(text);
    }
 
-   public void init_level () throws IOException {
+   private void init_level() {
 
         label_level.setText(String.valueOf(curr_level));
 
@@ -195,7 +246,8 @@ public class MainFormController implements Initializable {
             fill_text_area(parse_file(path).toString());
 
             time_start = System.currentTimeMillis();
-   }
+            btn_color_change();
+  }
 
 
    private Double get_speed (long start, long finish, String text)

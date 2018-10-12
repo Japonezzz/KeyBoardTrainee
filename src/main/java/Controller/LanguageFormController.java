@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.Language;
-import Model.User;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.application.Platform;
@@ -22,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class LanguageFormController implements Initializable {
 
-    ConnectionClass conn;
+    private ConnectionClass conn;
 
     @FXML
     private Label label_nickname;
@@ -75,7 +73,7 @@ public class LanguageFormController implements Initializable {
         combo_diff.setItems(diffs);
         combo_diff.getSelectionModel().select(0);
 
-        label_nickname.setText(conn.user.getNickname());
+        label_nickname.setText(ConnectionClass.user.getNickname());
     }
 
     private void next_form ()
@@ -89,6 +87,8 @@ public class LanguageFormController implements Initializable {
             path = "/FXMLMainFormeng.fxml";
         else if (combo_languages.getSelectionModel().getSelectedIndex() == 1)
             path = "/FXMLMainFormru.fxml";
+        else if (combo_languages.getSelectionModel().getSelectedIndex() == 2)
+            path = "/FXMLMainFormukr.fxml";
 
         Stage stage = (Stage) button_GO.getScene().getWindow();
         stage.close();
@@ -98,6 +98,8 @@ public class LanguageFormController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        assert root != null;
         Scene scene = new Scene(root);
 
         Stage primaryStage = new Stage();
